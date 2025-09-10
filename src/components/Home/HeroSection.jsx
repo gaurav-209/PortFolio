@@ -1,13 +1,25 @@
 import React from 'react'
-import { ArrowRight, Download, Github, Instagram, Linkedin, Mail, Twitter } from 'lucide-react'
-import { socialLinks } from '../data'
+import { ArrowRight, Download, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { socialLinks } from '../../data'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const HeroSection = () => {
+
+    useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+  })
+}, [])
+
     return (
         <section id='home' className='pt-28 pb-20 min-h-screen flex items-center'>
-            <div className=' container mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-                    <div className='order-2 lg:order-1 animate-slide-up'>
+                    {/* Text Section */}
+                    <div className='order-2 lg:order-1' data-aos="fade-up">
                         <div className='space-y-4'>
                             <h4 className='text-lg md:text-xl font-medium text-primary-600 dark:text-accent'>Hello, I'm</h4>
                             <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white'>Gaurav Mahavar</h1>
@@ -19,20 +31,19 @@ const HeroSection = () => {
 
                             <div className='flex flex-wrap gap-4 pt-4'>
                                 <a href="#contact"
-                                    className='inline-flex items-center px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-md transition-colors
-                                font-medium'
+                                    className='inline-flex items-center px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-md transition-colors font-medium'
                                 >
                                     Hire Me <ArrowRight size={20} />
                                 </a>
                                 <a
-                                    href="/Gaurav Mahavar Cv.pdf"
+                                    href="/Gaurav_Cv.pdf"
                                     download="Gaurav_Mahavar_Resume.pdf"
-                                    className='inline-flex items-center px-5 py-3 border border-primary-600 dark:border-accent text-primary-600 dark:text-accent
-    hover:bg-primary-50 dark:hover:bg-primary-900/50 rounded-md transition-colors font-medium'
+                                    className='inline-flex items-center px-5 py-3 border border-primary-600 dark:border-accent text-primary-600 dark:text-accent hover:bg-primary-50 dark:hover:bg-primary-900/50 rounded-md transition-colors font-medium'
                                 >
                                     Download Resume <Download size={18} className='ml-2' />
                                 </a>
                             </div>
+
                             <div className='pt-6'>
                                 <div className='flex space-x-5'>
                                     {socialLinks.map(link => {
@@ -46,26 +57,26 @@ const HeroSection = () => {
                                             <a href={link.url}
                                                 key={link.id}
                                                 target='_blank'
-                                                rel='noopener noreferer'
-                                                className='text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:text-accent transition-colors'
+                                                rel='noopener noreferrer'
+                                                className='text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-accent transition-colors'
                                                 aria-label={link.name}
                                             >
                                                 {IconComponents && <IconComponents size={22} />}
                                             </a>
                                         )
-                                    }
-                                    )}
+                                    })}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className='order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in'>
+                    {/* Image Section */}
+                    <div className='order-1 lg:order-2 flex justify-center lg:justify-end' data-aos="zoom-in">
                         <div className='relative'>
                             <div className='w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-primary-200 dark:border-primary-800'>
                                 <img
-                                    src='src\assets\Gaurav Ai Profile.png'
-                                    alt="Gaurav Mahavar"
+                                    src='/images/Gaurav Mahavar Profile Image.png'
+                                    alt="Gaurav Mahavar Profile Image"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

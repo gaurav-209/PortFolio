@@ -1,12 +1,23 @@
-import React from 'react';
-import { BriefcaseIcon } from 'lucide-react';
-import { experiences } from '../data';
+import React from 'react'
+import { BriefcaseIcon } from 'lucide-react'
+import { experiences } from '../../data'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const ExperienceSection = () => {
+  useEffect(() => {
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 50,
+  })
+}, [])
+
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-primary-900/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             Professional Experience
           </h2>
@@ -20,9 +31,10 @@ const ExperienceSection = () => {
           <div className="relative border-l-2 border-primary-200 dark:border-primary-800 pl-8 ml-4">
             {experiences.map((experience, index) => (
               <div 
-                key={experience.id} 
-                className={`mb-12 relative animate-slide-up`}
-                style={{ animationDelay: `${index * 150}ms` }}
+                key={experience.id}
+                className="mb-12 relative"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
               >
                 <div className="absolute -left-12 mt-1.5 w-8 h-8 bg-primary-100 dark:bg-primary-800 rounded-full flex items-center justify-center border-2 border-primary-200 dark:border-primary-700">
                   <BriefcaseIcon size={16} className="text-primary-600 dark:text-accent" />

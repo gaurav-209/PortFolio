@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, X, Moon, Sun, Github, Linkedin, Twitter, Instagram, Mail } from 'lucide-react'
-import { socialLinks } from '../data'
+import { socialLinks } from '../../data'
 
 const IconComponents = {
     github: Github,
@@ -28,7 +28,7 @@ const Navbar = () => {
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
         { name: 'Projects', href: '#projects' },
-        { name: 'Experience', href: '#xperience' },
+        { name: 'Experience', href: '#experience' },
         { name: 'Contact', href: '#contact' }
     ]
 
